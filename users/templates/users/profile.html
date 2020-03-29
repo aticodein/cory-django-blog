@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+      <h3>Your Profile:</h3>
+      <div class="media">
+       {% if user.profile.image.url %}
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+       {% else %}
+        <img class="rounded-circle account-img" src="/media/default.jpg">
+       {% endif %} 
+        <div class="media-body">
+          <h5 class="account">Username: {{ user.username }}</h5>
+          <p class="text-secondary">Your email is: {{ user.email }}</p>
+          <p>First name: {{ user.first_name }}</p>
+          <p>Last name: {{ user.last_name }}</p>
+        </div>
+      </div>
+      <!-- FORM HERE -->
+    </div>
+{% endblock content %}
